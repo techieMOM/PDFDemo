@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PDFDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11N-9S-dKi">
+                                <rect key="frame" x="41.5" y="428" width="331" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CLe-fu-ejP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Open PDF in Webview">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="openPDF:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2u5-Uw-hyh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvz-GP-TKA">
+                                <rect key="frame" x="41.5" y="529" width="331" height="50"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wse-uF-hoc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Open PDF using PDF Kit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="openPDF:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nf0-iT-6Xb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zvz-GP-TKA" firstAttribute="centerX" secondItem="11N-9S-dKi" secondAttribute="centerX" id="2hd-I3-NAp"/>
+                            <constraint firstItem="Zvz-GP-TKA" firstAttribute="width" secondItem="11N-9S-dKi" secondAttribute="width" id="56U-Bg-7ez"/>
+                            <constraint firstItem="Zvz-GP-TKA" firstAttribute="top" secondItem="11N-9S-dKi" secondAttribute="bottom" constant="51" id="Trt-qJ-neG"/>
+                            <constraint firstItem="11N-9S-dKi" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="YU5-pD-y37"/>
+                            <constraint firstItem="11N-9S-dKi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="kSQ-rT-gfC"/>
+                            <constraint firstItem="11N-9S-dKi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="w6i-lA-c8s"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="sLt-7O-DFD" kind="show" identifier="seguePDF" id="Vh0-2u-QlH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-145" y="31"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FxB-Pw-Kjw">
+            <objects>
+                <viewController id="sLt-7O-DFD" customClass="PDFViewController" customModule="PDFDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sP0-p9-tbG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HM1-bD-DId">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uVf-KG-1d3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HM1-bD-DId" firstAttribute="top" secondItem="sP0-p9-tbG" secondAttribute="top" id="6Ay-mH-ZAR"/>
+                            <constraint firstItem="uVf-KG-1d3" firstAttribute="trailing" secondItem="HM1-bD-DId" secondAttribute="trailing" id="KTB-wQ-VaF"/>
+                            <constraint firstAttribute="bottom" secondItem="HM1-bD-DId" secondAttribute="bottom" id="OUb-LM-1ag"/>
+                            <constraint firstItem="HM1-bD-DId" firstAttribute="leading" secondItem="uVf-KG-1d3" secondAttribute="leading" id="d9R-yE-fXn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jal-kC-afE"/>
+                    <connections>
+                        <outlet property="webKitView" destination="HM1-bD-DId" id="EvY-B4-IqY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57Q-y0-7Cg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="656.52173913043487" y="36.830357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
